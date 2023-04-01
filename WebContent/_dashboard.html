@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Dashboard - Fabflix</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="_dashboard.css">
+</head>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <div class="left-column">
+        <h2>Database Metadata</h2>
+        <div class="panel-group" id="metadata-group" role="tablist" aria-multiselectable="true"
+             style="margin-top: 30px; width: 250px">
+        </div>
+    </div>
+
+    <div class="right-column">
+        <h2>Add Movie</h2>
+        <form id="add-movie-form">
+            <div class="form-group">
+                <label for="title-input">Title</label>
+                <input type="text" class="form-control" id="title-input" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="year-input">Year</label>
+                <input type="text" class="form-control" id="year-input" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="director-input">Director</label>
+                <input type="text" class="form-control" id="director-input" name="director" required>
+            </div>
+            <div class="form-group">
+                <label for="genre-input">Genre</label>
+                <input type="text" class="form-control" id="genre-input" name="genre" required>
+            </div>
+            <div class="form-group">
+                <label for="star-name-input">Star Name</label>
+                <input type="text" class="form-control" id="star-name-input" name="star-name" required>
+            </div>
+            <div class="form-group">
+                <label for="star-year-input">Star Birth Year (Optional)</label>
+                <input type="text" class="form-control" id="star-year-input" name="star-year">
+            </div>
+            <div style="text-align: right;padding-top: 5px;padding-right: 35px;padding-bottom: 15px">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+        <p style="height: 25px"></p>
+        <h2>Add Star</h2>
+        <form id="add-star-form">
+            <div class="form-group">
+                <label for="star--name-input">Star Name</label>
+                <input type="text" class="form-control" id="star--name-input" name="star-name" required>
+            </div>
+            <div class="form-group">
+                <label for="year--input">Star Birth Year (Optional)</label>
+                <input type="text" class="form-control" id="year--input" name="star-year">
+            </div>
+            <div style="text-align: right;padding-top: 5px;padding-right: 35px;padding-bottom: 15px">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<script src="_dashboard.js"></script>
+
+</body>
+</html>

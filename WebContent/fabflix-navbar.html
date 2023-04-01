@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<style>
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand > img {
+        padding: 0 14px;
+    }
+</style>
+
+<nav class="navbar navbar-inverse" style="border-radius: 0">
+    <div class="navbar-brand">
+        <img src="assets/icon_white.png" alt="Fabflix" width="80px">
+    </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="mainpage.html" style="font-size: x-large">Fabflix</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="mainpage.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="browse.html">Browse Movies</a></li>
+                    <li><a href="movie-list.html">Top 20 Movies</a></li>
+                </ul>
+            </li>
+            <li><a href="search.html">Search</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="shopping-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>
+                Shopping Cart</a></li>
+            <li>
+                <a onclick="logOutFunction()" href="login.html" style="background-color: #4d060b"><span
+                        class="glyphicon glyphicon-log-out"></span> Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    function logOutFunction() {
+        $.ajax({
+            method: "POST",
+            url: "api/log-out"
+        })
+    }
+</script>
+
+</body>
+</html>

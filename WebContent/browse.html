@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Browse - Fabflix</title>
+</head>
+<style>
+    .browse-by {
+        text-align: left;
+        display: inline-block;
+        width: 80%;
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <h1>Browse</h1>
+    <div style="text-align: center">
+        <div class="browse-by">
+            <div style="background-color: rgba(246,252,139,0.5);padding: 20px 20px;border-radius: 20px">
+                <p><b>By Title:</b></p>
+                <p id="number-initials" style="padding-left: 20px"></p>
+                <p id="letter-initials" style="padding-left: 20px"></p>
+            </div>
+            <p>
+
+            </p>
+            <div style="background-color: rgba(246,252,139,0.5);padding: 20px 20px;border-radius: 20px">
+                <p><b>By Genre:</b></p>
+                <p id="genres" style="color: #8a8b8e;padding-left: 20px"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const num = "0123456789".split("");
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ*".split("");
+    $.each(num, function (idx) {
+        $("#number-initials").append(`<a href="movie-list.html?startingWith=${num.at(idx)}" style="color: #3ca9e2;padding-right: 10px;font-size: medium">${num.at(idx)}</a>`);
+    });
+    $.each(alphabet, function (idx) {
+        $("#letter-initials").append(`<a href="movie-list.html?startingWith=${alphabet.at(idx)}" style="color: #3ca9e2;padding-right: 10px;font-size: medium">${alphabet.at(idx)}</a>`);
+    });
+
+    function handleGenres(resultData) {
+        for (let i = 0; i < resultData.length; i++) {
+            $("#genres").append(`<a href="movie-list.html?genre=${resultData[i]['genre']}" style="color: #3ca9e2;font-size: medium">${resultData[i]['genre']}</a>(${resultData[i]['number']})  `);
+        }
+    }
+
+    jQuery.ajax({
+        dataType: "json",
+        method: "GET",
+        url: "api/genres",
+        success: (resultData) => handleGenres(resultData)
+    });
+</script>
+
+</body>
+</html>

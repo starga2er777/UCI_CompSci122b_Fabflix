@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Payment - Fabflix</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        .container {
+            padding: 0 200px;
+        }
+
+        .container form {
+            margin-top: 20px;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background-color: #7DC855;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 30px;
+            transition: all .5s;
+        }
+
+        .order-btn:hover {
+            background-color: #64af3d;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <h1>Payment</h1>
+    <p>Please fill in the information to complete payment.</p>
+    <form id="payment-form">
+        <div class="form-group">
+            <label for="first-name-input">First Name</label>
+            <input type="text" class="form-control" id="first-name-input" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last-name-input">Last Name</label>
+            <input type="text" class="form-control" id="last-name-input" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="credit-card-input">Credit Card Number</label>
+            <input type="text" class="form-control" id="credit-card-input" name="credit_card" required>
+        </div>
+        <div class="form-group" style="padding-bottom: 30px;border-bottom: 1px solid #E1E8EE">
+            <label for="exp-date-input">Expiration Date</label>
+            <input type="date" class="form-control" id="exp-date-input" name="expiration_date" required>
+        </div>
+        <div style="text-align: right;padding-top: 15px">
+            <div id="message_box" style="text-align: left"></div>
+            <button type="submit" class="order-btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+</html>

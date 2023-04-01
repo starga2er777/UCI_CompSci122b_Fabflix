@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <title>Shopping Cart - Fabflix</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9em;
+            min-width: 800px;
+            overflow: hidden;
+        }
+
+        .content-table thead tr {
+            background-color: #4b4b4b;
+            color: white;
+            text-align: left;
+            font-weight: normal;
+            font-size: x-large;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 10px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #4b4b4b;
+        }
+
+        #top-button {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #4b4b4b;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        #total-price {
+            font-size: x-large;
+            padding-bottom: 10px;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background-color: #7DC855;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 30px;
+            transition: all .5s;
+        }
+
+        .order-btn:hover {
+            background-color: #64af3d;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+
+<div class="container">
+    <h1>Your Shopping Cart</h1>
+
+    <table id=movie_table class="content-table">
+        <thead>
+        <tr>
+            <!-- Titles of each column-->
+            <th></th>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody id=movie_table_body></tbody>
+    </table>
+    <div style="margin-right: 15%;text-align: right;margin-top: 20px">
+        <p id="total-price">Total Price: $100000</p>
+        <a href="payment.html"><button class="order-btn">Check Out</button></a>
+    </div>
+
+</div>
+
+<button onclick="topFunction()" id="top-button" title="Go to top">Top</button>
+<!--top button script-->
+<script>
+    // Get the button
+    let btn = document.getElementById("top-button");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="shopping-cart.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Search - Fabflix</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+
+    <style>
+        .input-group {
+            padding-top: 20px;
+        }
+
+        .input-group-addon {
+            background-color: #4b4b4b;
+            color: white;
+        }
+    </style>
+
+    <link rel="stylesheet" href="search.css">
+
+</head>
+
+<body>
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <h1>Search</h1>
+    <form id="search-form" action="movie-list.html" method="GET">
+        <div class="input-group">
+            <span class="input-group-addon">Title</span>
+            <input type="text" class="form-control" placeholder="The Dark Knight" aria-describedby="title-bar"
+                   name="title" id="input-title">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Year</span>
+            <input type="text" class="form-control" placeholder="2008" aria-describedby="year-bar"
+                   name="year" id="input-year">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Director</span>
+            <input type="text" class="form-control" placeholder="Christopher Nolan" aria-describedby="director-bar"
+                   name="director" id="input-director">
+        </div>
+        <div class="input-group" style="padding-bottom: 80px">
+            <span class="input-group-addon">Star</span>
+            <input type="text" class="form-control" placeholder="Christian Bale" aria-describedby="star-bar"
+                   name="star" id="input-star">
+        </div>
+        <p>
+            <input type="submit" id="submit" value="Submit" class="btn btn-default btn-lg" style="position: fixed;right: 250px;background-color: #4b4b4b;color: white">
+        </p>
+    </form>
+</div>
+
+<script src = "search.js"></script>
+
+</body>
+</html>

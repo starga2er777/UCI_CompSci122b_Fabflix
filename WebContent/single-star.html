@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Loading...</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="single-movie.css">
+</head>
+
+<body>
+
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<a class="back-btn" href="javascript:goBack()"><span class="glyphicon glyphicon-arrow-left"></span></a>
+
+<div class="container">
+
+    <div class="left-column" id="left-column"></div>
+
+    <div class="right-column">
+
+        <div class="star-description">
+            <span></span>
+            <h1 id="star-name"></h1>
+        </div>
+
+        <div class="star-configuration">
+            <div class="star-info">
+                <span>Birth Year:</span>
+                <p id="star-year" style="font-size: 20px"></p>
+            </div>
+
+            <div class="star-info">
+                <span style="font-size: x-large">Movies:</span>
+                <p id="star-movie"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = sessionStorage.getItem("jumpURL");
+    }
+</script>
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="single-star.js"></script>
+</body>
+
+
+</html>

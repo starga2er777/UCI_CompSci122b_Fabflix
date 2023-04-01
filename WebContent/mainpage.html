@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Fabflix</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        #top-button {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #4b4b4b;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:20px">
+
+        <!-- Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="grid"></div>
+
+        <!-- Pagination -->
+<!--        <div class="w3-center w3-padding-32">-->
+<!--            <div class="w3-bar">-->
+<!--                <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>-->
+<!--                <a href="#" class="w3-bar-item w3-black w3-button">1</a>-->
+<!--                <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>-->
+<!--                <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>-->
+<!--                <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>-->
+<!--                <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+
+<button onclick="topFunction()" id="top-button" title="Go to top">Top</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="mainpage.js"></script>
+<!--top button script-->
+<script>
+    // Get the button
+    let btn = document.getElementById("top-button");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>

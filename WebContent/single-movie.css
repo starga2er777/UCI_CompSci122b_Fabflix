@@ -1,0 +1,129 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+/* Columns */
+.left-column {
+    width: 40%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.right-column {
+    width: 60%;
+    margin-top: 60px;
+}
+
+.left-column img {
+    width: 85%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.movie-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 10px;
+}
+
+.movie-description span {
+    font-size: 12px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.movie-description h1 {
+    font-weight: 300;
+    font-size: 52px;
+    color: #43484D;
+    letter-spacing: -2px;
+    padding-bottom: 20px;
+}
+
+.movie-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.movie-configuration {
+    border-bottom: 1px solid #E1E8EE;
+}
+
+.movie-info div {
+    display: inline-block;
+}
+
+.movie-info span {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.movie-info p {
+    font-size: 15px;
+    color: rgba(67, 71, 77, 0.92);
+    font-weight: lighter;
+    line-height: 24px;
+    text-align: left;
+    display: inline-block;
+}
+
+.movie-price {
+    display: flex;
+    align-items: center;
+}
+
+.movie-price span {
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(67, 71, 77, 0.97);
+    margin-right: 20px;
+}
+
+.cart-btn {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+}
+
+.cart-btn:hover {
+    background-color: #64af3d;
+}
+
+.back-btn {
+    position: fixed;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 30px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    left: 50px;
+    border-radius: 6px;
+}
+
+.back-btn:hover {
+    color: black;
+}

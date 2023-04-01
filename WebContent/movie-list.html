@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <title>Movie List - Fabflix</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: small;
+            min-width: 350px;
+            overflow: hidden;
+        }
+
+        .content-table thead tr {
+            background-color: #4b4b4b;
+            color: white;
+            text-align: left;
+            font-weight: normal;
+            font-size: x-large;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #000000;
+        }
+
+        #top-button {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #4b4b4b;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background-color: #000000;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #e30a0a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+
+<div class="container">
+    <h1>Movie List</h1>
+    <p style="padding-top: 10px">
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false"
+           aria-controls="collapseExample">
+            Sort Options
+        </a>
+    </p>
+    <div class="collapse" id="collapseForm">
+        <div class="card card-body">
+            <form id="settings">
+                <label for="size">Items Per Page</label>
+                <select id="size" name="size">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+
+                <label for="order">Order</label>
+                <select id="order" name="order">
+                    <option value="rating desc">Rating &darr;</option>
+                    <option value="rating asc">Rating &uarr;</option>
+                    <option value="title desc">Title &darr;</option>
+                    <option value="title asc">Title &uarr;</option>
+                </select>
+
+                <label for="second-order">Second Order</label>
+                <select id="second-order" name="second-order">
+                    <option value="null"></option>
+                    <option value="rating desc">Rating &darr;</option>
+                    <option value="rating asc">Rating &uarr;</option>
+                    <option value="title desc">Title &darr;</option>
+                    <option value="title asc">Title &uarr;</option>
+                </select>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <table id=movie_table class="content-table">
+        <!-- Create a table header -->
+        <thead>
+        <tr>
+            <!-- Titles of each column-->
+            <th></th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Genres</th>
+            <th>Stars</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+        <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+        <tbody id=movie_table_body></tbody>
+    </table>
+    <div class="w3-center w3-padding-32">
+        <div class="w3-bar" style="background-color: #dddddd;font-size: x-large">
+            <a href="javascript:flip(-1)" class="w3-bar-item w3-button w3-hover-black">&laquo;</a>
+            <a id="page-number" class="w3-bar-item">1</a>
+            <a href="javascript:flip(1)" class="w3-bar-item w3-button w3-hover-black">»</a>
+        </div>
+    </div>
+</div>
+
+<button onclick="topFunction()" id="top-button" title="Go to top">Top</button>
+<!--top button script-->
+<script>
+    // Get the button
+    let btn = document.getElementById("top-button");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="movie-list.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/icon.png">
+    <title>Payment Confirmation - Fabflix</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9em;
+            min-width: 800px;
+            overflow: hidden;
+        }
+
+        .content-table thead tr {
+            background-color: #4b4b4b;
+            color: white;
+            text-align: left;
+            font-weight: normal;
+            font-size: x-large;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 10px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #4b4b4b;
+        }
+        .order-btn {
+            display: inline-block;
+            background-color: #7DC855;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 30px;
+            transition: all .5s;
+        }
+
+        .order-btn:hover {
+            background-color: #64af3d;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="fabflix-nav"></div>
+<script>($("#fabflix-nav")).load("fabflix-navbar.html");</script>
+
+<div class="container">
+    <h1>Payment Confirmation</h1>
+
+    <table class="content-table">
+        <thead>
+        <tr>
+            <th>Sale Id</th>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody id=confirmation_table_body></tbody>
+    </table>
+
+    <div style="margin-right: 15%;text-align: right;margin-top: 20px">
+        <p id="total-price"></p>
+        <a href="mainpage.html"><button class="order-btn">Confirm</button></a>
+    </div>
+</div>
+</body>
+
+<script src="payment-confirmation.js"></script>
+
+</html>
